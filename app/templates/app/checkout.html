@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row mt-5">
+  <div class="col-sm-6">
+    <h4>Order Summary</h4>
+    <hr>
+    {% if products %}
+    {% for product in products %}
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5>Product: {{product.title}}</h5>
+          <p>Quantity: {{product.quantity}}</p>
+          <p class="fw-bold">Price:{{product.final_price}}</p>
+        </div>
+      </div>
+    {% endfor %}
+    {% endif %}
+    <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small>
+  </div>
+  {% if addresses %}
+  <div class="col-sm-6">
+    <div class="card mb-2">
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Select Address</label>
+              <select class="form-control" id="exampleFormControlSelect1" name="address">
+                {% for address in addresses %}
+                <option>{{address.name}}</option>
+                {% endfor %}
+              </select>
+              <button style="margin-top:12px;" type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">Continue</button>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Credit Card number</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Credit card number" name="credit_card">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock main-content %}
