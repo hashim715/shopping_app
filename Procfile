@@ -1,1 +1,1 @@
-web: gunicorn business.wsgi
+web: gunicorn shoppinglyx.wsgi
