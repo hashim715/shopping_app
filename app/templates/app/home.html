@@ -91,11 +91,10 @@ Home
         <img
           src="{{product.image.url}}"
           alt=""
-          height="200px" /></a
-      ><span class="fw-bold">{{product.title}}</span><br /><span class="fs-5"
+          height="200px" /></a><br>
+        <span class="fw-bold">{{product.title}}</span><br /><span class="fs-5"
         >{% if product.discount_price %} Rs.{{product.discount_price}} <del>{{product.price}}</del> {% else %}
-        {{product.price}} {% endif %}</span
-      >
+        {{product.price}} {% endif %}</span>
     </div>
     {% endfor %}
     {% endif %}
@@ -171,7 +170,7 @@ Home
         src="{{product.image.url}}"
         alt=""
         height="200px"
-      /></a><span class="fw-bold">{{product.title}}</span><br /><span class="fs-5"
+      /></a><br><span class="fw-bold">{{product.title}}</span><br /><span class="fs-5"
         >Rs. {{product.price}}</span
       >
     </div>
