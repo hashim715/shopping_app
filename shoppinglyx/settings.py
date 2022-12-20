@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '8o353)z(_*^04+jhey!m*q3_no@vhn*7v8(6xz4rl6=kunu=it'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1','localhost']
 
@@ -124,12 +124,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# MEDIA_URL="/media/"
-from google.oauth2 import service_account
+MEDIA_URL="/media/"
+# from google.oauth2 import service_account
 
-GS_CREDENTIALS=service_account.Credentials.from_service_account_file(
-    os.path.join(BASE_DIR,"credentials.json")
-)
+# GS_CREDENTIALS=service_account.Credentials.from_service_account_file(
+#     os.path.join(BASE_DIR,"credentials.json")
+# )
 
 
 STATIC_URL = '/static/'
@@ -139,10 +139,10 @@ STATICFILE_DIRS=[
     os.path.join(BASE_DIR,"static")
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-DEFAULT_FILE_STORAGE='shoppinglyx.gcloud.GoogleCloudMediaFileStorage'
-GS_PROJECT_ID = 'Google Django Project'
-GS_BUCKET_NAME = 'my_django_bucket'
-MEDIA_ROOT = "media/"
-UPLOAD_ROOT = 'media/uploads/'
-MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
-#MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+# DEFAULT_FILE_STORAGE='shoppinglyx.gcloud.GoogleCloudMediaFileStorage'
+# GS_PROJECT_ID = 'Google Django Project'
+# GS_BUCKET_NAME = 'my_django_bucket'
+# MEDIA_ROOT = "media/"
+# UPLOAD_ROOT = 'media/uploads/'
+# MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")
