@@ -138,7 +138,7 @@ STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles")
 STATICFILE_DIRS=[
     os.path.join(BASE_DIR,"static")
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # DEFAULT_FILE_STORAGE='shoppinglyx.gcloud.GoogleCloudMediaFileStorage'
 # GS_PROJECT_ID = 'Google Django Project'
 # GS_BUCKET_NAME = 'my_django_bucket'
